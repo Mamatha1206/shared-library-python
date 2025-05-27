@@ -1,14 +1,15 @@
 def call() {
     stage('Install Dependencies') {
-        sh 'pip install -r requirements.txt'
+        sh 'pip3 install -r requirements.txt'
     }
 
     stage('Run Tests') {
-        sh 'PYTHONPATH=.:$PYTHONPATH pytest tests/'
+        sh 'PYTHONPATH=. pytest tests/'
     }
 
     stage('Build Package') {
-        sh 'python setup.py sdist bdist_wheel'
+        sh 'python3 setup.py sdist bdist_wheel'
     }
 }
+
 
